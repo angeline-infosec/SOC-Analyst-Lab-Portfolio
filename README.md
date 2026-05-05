@@ -1,5 +1,15 @@
 # SOC-Analyst-Lab-Portfolio
 
+
+<div style="display: flex; gap: 10px;">
+  <img width="200" alt="image" src="https://github.com/user-attachments/assets/e8f1d8d1-799d-4b84-ba61-3f1a3172b0ac" />
+  <img width="200" alt="image" src="https://github.com/user-attachments/assets/70cfe939-9c77-4ac6-9659-ad87271ea585" />
+  <img width="200" alt="image" src="https://github.com/user-attachments/assets/92ab5dd6-2611-4984-b03c-1ffea2860bc9" />
+  <img width="200" alt="image" src="https://github.com/user-attachments/assets/6ece9091-e739-4c94-b4f7-8685e611d11c" />
+</div>
+
+
+
 ## Overview
 
 This repository contains a collection of hands-on Security Operations Center (SOC) investigations performed across multiple cybersecurity training platforms, including LetsDefend, CyberDefenders, TryHackMe, and Hack The Box.
