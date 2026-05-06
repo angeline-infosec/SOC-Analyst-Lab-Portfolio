@@ -18,7 +18,7 @@ The objective of this portfolio is to demonstrate practical SOC analyst skills s
 
 ## Contents
 
-Phishing Email Investigation – SOC Simulator
+- [Phishing-Incident-Analysis](https://github.com/angeline-infosec/SOC-Analyst-Lab-Portfolio/blob/main/Phishing-Incident-Analysis) – SOC Simulator
 
 ## Key Skills Demonstrated
 
