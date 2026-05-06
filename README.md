@@ -16,6 +16,10 @@ This repository contains a collection of hands-on Security Operations Center (SO
 
 The objective of this portfolio is to demonstrate practical SOC analyst skills such as alert triage, log analysis, incident investigation, and evidence-based decision making.
 
+## Contents
+
+Phishing Email Investigation – SOC Simulator
+
 ## Key Skills Demonstrated
 
 - SIEM alert investigation and triage
