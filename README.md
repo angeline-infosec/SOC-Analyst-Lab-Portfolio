@@ -23,13 +23,28 @@ The objective of this portfolio is to demonstrate practical SOC analyst skills s
 
 ## Key Skills Demonstrated
 
-- SIEM alert investigation and triage
-- Phishing email analysis
-- Endpoint security incident analysis
-- Network traffic analysis
-- Log analysis (Windows Event Logs, Splunk)
-- Threat detection and incident response
-- Identification of Indicators of Compromise (IOCs)
+- SOC alert investigation and triage
+  
+- Endpoint security investigation
+  
+- Process tree analysis
+  
+- Threat detection analysis
+
+- IOC identification and validation
+  
+- Threat intelligence analysis
+  
+- Network connection investigation
+  
+- Behavioral detection analysis
+  
+- Log analysis
+  
+- MITRE ATT&CK mapping
+  
+- Incident response concepts
+  
 - Writing structured SOC investigation reports
 
 
@@ -43,21 +58,60 @@ Each investigation follows a structured SOC reporting format:
                  Where – Affected systems, IPs, or domains
                  Why – Analytical reasoning and final assessment
 
-Additional sections include:
 
-- Investigation steps and queries
+Additional investigation components may include:
 
+- Process tree analysis
+  
+- Endpoint telemetry analysis
+  
 - Indicators of Compromise (IOCs)
-
+  
+- MITRE ATT&CK mapping
+  
+- Threat intelligence enrichment
+  
+- Detection analysis
+  
 - Final verdict (Malicious / Suspicious / Benign)
 
 
 ## Tools & Technologies
 
-- SIEM: Splunk (log analysis & querying)
-- Endpoint & System Logs: Windows Event Viewer
-- Network Analysis: PCAP analysis tools (e.g., Wireshark)
-- Threat Intelligence: OSINT sources
+## Security Platforms
+
+- Endpoint Detection & Response (EDR)
+  
+- SIEM platforms
+  
+- Threat Intelligence sources
+  
+- Simulated SOC environments
+
+### Investigation & Analysis
+
+- Process tree analysis
+  
+- Endpoint telemetry analysis
+  
+- IOC investigation
+  
+- Behavioral detection analysis
+  
+- MITRE ATT&CK framework mapping
+
+### Endpoint & Network Visibility
+
+- Windows Event Logs
+  
+- Endpoint telemetry
+  
+- Registry analysis
+  
+- Command-line activity analysis
+  
+- Network connection analysis
+
 
 
 ## Purpose
@@ -66,11 +120,17 @@ This portfolio is designed to simulate real SOC workflows and demonstrate my abi
 
 -> Analyze security alerts
 
+-> Investigate suspicious activity
+
 -> Correlate events across multiple data sources
 
--> Identify malicious activity
+-> Identify malicious behaviors and attack chains
+
+-> Perform detection triage and analysis
 
 -> Communicate findings clearly and concisely
+
+
 
 This repository is actively maintained with new investigations and improved analysis techniques as my skills develop.
 
