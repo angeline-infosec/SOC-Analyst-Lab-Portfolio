@@ -1,5 +1,6 @@
 
-# Introduction to EDR – SOC Investigation Lab
+# [Introduction to EDR](https://tryhackme.com/room/introductiontoedrs) – SOC Investigation Lab
+![TryHackMe](https://img.shields.io/badge/TryHackMe-1abc9c?style=flat-square)
 
 ## Lab Overview
 
@@ -221,9 +222,34 @@ This demonstrates the importance of contextual analysis during SOC investigation
 
 ## Screenshots
 
-(Add screenshots here)
+### EDR Dashboard Overview
+![EDR Dashboard](screenshots/edr-dashboard.png.png)
+
+Overview of endpoint detections, CrowdScore metrics, and detection trends inside the EDR console.
 
 ---
+
+### Endpoint Detection Queue
+![Endpoint Detections](screenshots/detection-console.png.png)
+
+Detection queue showing multiple alerts with severity levels, tactics, techniques, and suspicious command-line activity.
+
+---
+
+### Process Tree Investigation
+![Process Tree Analysis](screenshots/process-tree-analysis.png.png)
+
+Visualization of malicious parent-child process relationships used during investigation and attack chain reconstruction.
+
+---
+
+### Falcon Real Time Response (RTR)
+![Falcon RTR Console](screenshots/real-time-response.png.png)
+
+Example of remote endpoint response capabilities available through the EDR platform for investigation and containment.
+
+---
+
 
 ## Tools & Technologies
 
