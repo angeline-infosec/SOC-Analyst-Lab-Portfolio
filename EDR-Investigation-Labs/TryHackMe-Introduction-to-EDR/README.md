@@ -119,6 +119,8 @@ install.exe
 
 ### Investigation Findings
 
+ss
+
 A malicious macro-enabled Word document (`invoice.docm`) spawned `CMD.EXE`, which launched `cURL.EXE` to download a payload from a remote server.
 
 The payload was saved as:
@@ -153,6 +155,8 @@ represents suspicious parent-child process relationships commonly observed durin
 
 ### Investigation Findings
 
+ss
+
 The endpoint executed an unsigned binary:
 
 ```text
@@ -186,6 +190,8 @@ The outbound upload activity further indicates potential exfiltration of stolen 
 ## Detection 3 — DESKTOP-DEV01
 
 ### Investigation Findings
+
+ss
 
 The executable:
 
