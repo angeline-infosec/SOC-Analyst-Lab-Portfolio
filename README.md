@@ -19,7 +19,7 @@ The objective of this portfolio is to demonstrate practical SOC analyst skills s
 ## Contents
 
 -  [EDR Investigation Labs](./EDR-Investigation-Labs)
-  - [TryHackMe – Introduction to EDR](./EDR-Investigation-Labs/TryHackMe-Introduction-to-EDR) – Endpoint telemetry analysis, process tree investigation, behavioral detections, and SOC alert triage
+     - [TryHackMe – Introduction to EDR](./EDR-Investigation-Labs/TryHackMe-Introduction-to-EDR) – Endpoint telemetry analysis, process tree investigation, behavioral detections, and SOC alert triage
 
 ## Key Skills Demonstrated
 
