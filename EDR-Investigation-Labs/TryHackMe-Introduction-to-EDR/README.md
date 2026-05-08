@@ -119,7 +119,7 @@ install.exe
 
 ### Investigation Findings
 
-ss
+![DESKTOP-HR01 Detection](screenshots/DESKTOP-HR01.png)
 
 A malicious macro-enabled Word document (`invoice.docm`) spawned `CMD.EXE`, which launched `cURL.EXE` to download a payload from a remote server.
 
@@ -155,7 +155,7 @@ represents suspicious parent-child process relationships commonly observed durin
 
 ### Investigation Findings
 
-ss
+![WIN-ENG-LAPTOP03 Detection](screenshots/WIN-ENG-LAPTOP03.png)
 
 The endpoint executed an unsigned binary:
 
@@ -166,6 +166,8 @@ C:\Users\haris.khan\AppData\Local\Temp\syncsvc.exe
 The process accessed `lsass.exe` and attempted to dump memory, indicating credential dumping behavior.
 
 The process also initiated outbound traffic to:
+
+![WIN-ENG-LAPTOP03 Additional Evidence](screenshots/WIN-ENG-LAPTOP03%20-2.png)
 
 ```text
 https://files-wetransfer.com/upload/session/ab12cd34ef56/dump_2025.dmp
@@ -191,7 +193,6 @@ The outbound upload activity further indicates potential exfiltration of stolen 
 
 ### Investigation Findings
 
-ss
 
 The executable:
 
@@ -202,6 +203,8 @@ C:\Users\daniel.richards\AppData\Roaming\UpdateAgent.exe
 generated suspicious activity indicators due to outbound connections and lack of a digital signature.
 
 However, Threat Intelligence enrichment identified the executable as:
+
+![DESKTOP-DEV01 Detection](screenshots/DESKTOP-DEV01.png)
 
 ```text
 Known internal IT utility tool
