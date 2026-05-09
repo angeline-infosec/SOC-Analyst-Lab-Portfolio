@@ -1,111 +1,35 @@
 
 # [Introduction to EDR](https://tryhackme.com/room/introductiontoedrs) – SOC Investigation Lab
-![TryHackMe](https://img.shields.io/badge/TryHackMe-1abc9c?style=flat-square)
+Platform:![TryHackMe](https://img.shields.io/badge/TryHackMe-1abc9c?style=flat-square)  | Difficulty: Beginner–Intermediate
 
 ## Lab Overview
 
-This lab focused on understanding the fundamentals of Endpoint Detection and Response (EDR), including telemetry collection, behavioral detections, attack chain visibility, and incident response capabilities.
+This lab introduced me to Endpoint Detection and Response (EDR), a security technology that goes beyond traditional antivirus by monitoring how programs behave rather than just scanning for known malware signatures.
 
-The investigation simulated realistic SOC analyst workflows using an EDR dashboard to triage alerts, analyze process trees, investigate endpoint telemetry, and validate suspicious activity.
-
----
-
-## Platform
-
-- TryHackMe
+I worked through a simulated SOC analyst workflow by triaging alerts from an EDR dashboard, tracing attack chains through process trees, and making decisions about which detections were malicious and which were false positives.
 
 ---
 
-## Objectives
+# What I Learned
 
-- Understand how EDR differs from traditional Antivirus solutions
-- Learn how EDR agents and sensors collect telemetry
-- Investigate endpoint activity using EDR telemetry
-- Analyze suspicious process chains
-- Understand EDR detection methodologies
-- Perform SOC alert triage using an EDR dashboard
+## Why EDR matters over traditional antivirus:
 
----
+Traditional antivirus software relies on signature databases, meaning it can only catch threats it already knows. EDR instead records everything happening on an endpoint (process launches, file changes, network connections, registry edits) and flags unusual behavior. This makes it far more effective against modern attacks like fileless malware or living-off-the-land techniques.
 
-## Skills Demonstrated
+## Key detection methods EDR uses:
 
-- SOC alert triage
-- Endpoint telemetry analysis
-- Parent-child process analysis
-- Threat detection analysis
-- IOC investigation
-- Process tree investigation
-- Network connection analysis
-- Threat intelligence validation
-- MITRE ATT&CK mapping
-- Detection and response concepts
+- Behavioral detection — flags activity that looks suspicious regardless of the file involved
+- IOC matching — checks known malicious hashes, IPs, or domains
+- Anomaly detection — identifies deviations from normal baseline activity
+- MITRE ATT&CK mapping — tags detections to known attacker tactics and techniques
 
 ---
 
-## EDR Concepts Learned
+## Investigation Scenarios
 
-### Visibility
+### Detection 1 — DESKTOP-HR01 | ⚠️ Malicious
 
-EDR solutions provide detailed visibility into endpoint activity, including:
-
-- Process execution
-- File modifications
-- Registry changes
-- Network connections
-- User activity
-- Command-line execution
-
-This telemetry enables analysts to reconstruct attacker activity and investigate suspicious behavior in depth.
-
----
-
-### Detection
-
-The lab demonstrated several modern EDR detection techniques:
-
-- Behavioral Detection
-- Anomaly Detection
-- IOC Matching
-- Machine Learning-Based Detection
-- MITRE ATT&CK Mapping
-
-Unlike traditional antivirus solutions, EDR platforms analyze behavioral patterns and attack chains rather than relying solely on malware signatures.
-
----
-
-### Response Capabilities
-
-The EDR platform supported several response actions:
-
-- Host isolation
-- Process termination
-- File quarantine
-- Remote endpoint access
-- Artifact collection
-
-These response mechanisms allow SOC analysts to rapidly contain and investigate threats.
-
----
-
-## Investigation Scenario
-
-The lab simulated multiple endpoint detections requiring triage and investigation through the EDR console.
-
-The investigation focused on:
-- malicious Office macro activity
-- suspicious PowerShell execution
-- malware downloads
-- credential dumping behavior
-- outbound exfiltration attempts
-- threat intelligence validation
-
----
-
-# Detection Analysis
-
-## Detection 1 — DESKTOP-HR01
-
-### Observed Process Chain
+Observed Process Chain:
 
 ```text
 WINWORD.EXE
@@ -117,115 +41,120 @@ cURL.EXE
 install.exe
 ```
 
-### Investigation Findings
-
 ![DESKTOP-HR01 Detection](screenshots/DESKTOP-HR01.png)
 
-A malicious macro-enabled Word document (`invoice.docm`) spawned `CMD.EXE`, which launched `cURL.EXE` to download a payload from a remote server.
 
-The payload was saved as:
+What happened:
 
-```text
-C:\Users\Public\install.exe
+A user on DESKTOP-HR01 opened a Word document (invoice.docm) that contained a malicious macro. When opened, the macro silently launched CMD.EXE, which then used cURL.EXE to download a payload from a remote server and save it as C:\Users\Public\install.exe.
+
+Why this is suspicious:
+
+Microsoft Word should never need to open a command prompt under normal use. When WINWORD.EXE spawns CMD.EXE, it is a strong indicator that a macro has executed malicious code (this is a well-documented technique attackers use in phishing campaigns). The C:\Users\Public\ path is also a common drop location because it is writable by all users.
+
+The EDR quarantined the payload before it could execute, preventing further damage.
+
+### MITRE ATT&CK Mapping:
+
+| Tactic         | Technique                            |
+| -------------- | ------------------------------------ |
+| Initial Access | T1566.001 - Spearphishing Attachment |
+
+--- 
+
+### Detection 2 — WIN-ENG-LAPTOP03 | ⚠️ Malicious
+
+Observed Process Chain:
+
+```
+syncsvc.exe (unsigned, from Temp directory)
+↓
+lsass.exe (memory access attempt)
+↓
+Outbound upload to files-wetransfer.com
 ```
 
-The EDR successfully quarantined the payload before execution.
-
-### Analyst Assessment
-
-This activity strongly indicates a phishing-based malware delivery chain using malicious Office macros and command-line payload retrieval.
-
-The use of:
-- `WINWORD.EXE → CMD.EXE`
-- `CMD.EXE → cURL.EXE`
-
-represents suspicious parent-child process relationships commonly observed during malware execution.
-
-### Potential MITRE ATT&CK Mapping
-
-| Tactic | Technique |
-|---|---|
-| Initial Access | Phishing |
-| Execution | Command and Scripting Interpreter |
-| Command and Control | Ingress Tool Transfer |
-
----
-
-## Detection 2 — WIN-ENG-LAPTOP03
-
-### Investigation Findings
 
 ![WIN-ENG-LAPTOP03 Detection](screenshots/WIN-ENG-LAPTOP03.png)
 
-The endpoint executed an unsigned binary:
-
-```text
-C:\Users\haris.khan\AppData\Local\Temp\syncsvc.exe
-```
-
-The process accessed `lsass.exe` and attempted to dump memory, indicating credential dumping behavior.
-
-The process also initiated outbound traffic to:
 
 ![WIN-ENG-LAPTOP03 Additional Evidence](screenshots/WIN-ENG-LAPTOP03%20-2.png)
 
-```text
-https://files-wetransfer.com/upload/session/ab12cd34ef56/dump_2025.dmp
-```
 
-### Analyst Assessment
+What happened:
 
-The execution of an unsigned binary from the Temp directory combined with LSASS memory access strongly suggests credential theft activity.
+An unsigned executable (syncsvc.exe) ran from C:\Users\haris.khan\AppData\Local\Temp\. It attempted to access the memory of lsass.exe, the Windows process responsible for storing user credentials(user authentication, password changes, and security policies). Shortly after, outbound traffic was detected to an external file-sharing site.
 
-The outbound upload activity further indicates potential exfiltration of stolen credentials or sensitive data.
+Why this is suspicious:
 
-### Potential MITRE ATT&CK Mapping
+Legitimate software is almost always digitally signed. An unsigned binary running from the Temp folder is unusual and a common characteristic of malware. lsass.exe holds password hashes in memory, and tools like Mimikatz are specifically designed to extract credentials from it. This is a technique called credential dumping. The immediate outbound connection to a file transfer service suggests the attacker was trying to exfiltrate what they stole.
 
-| Tactic | Technique |
-|---|---|
-| Credential Access | OS Credential Dumping |
-| Exfiltration | Exfiltration Over Web Service |
-| Defense Evasion | Masquerading |
+### MITRE ATT&CK Mapping:
+
+| Tactic      | Technique                      |
+| ----------- | ------------------------------ |
+| Persistence | T1003.002 - Credential Dumping |
+
 
 ---
 
-## Detection 3 — DESKTOP-DEV01
+### Detection 3 — DESKTOP-DEV01 | ✅ False Positive
 
-### Investigation Findings
+What triggered the alert:
 
+       C:\Users\daniel.richards\AppData\Roaming\UpdateAgent.exe 
 
-The executable:
-
-```text
-C:\Users\daniel.richards\AppData\Roaming\UpdateAgent.exe
-```
-
-generated suspicious activity indicators due to outbound connections and lack of a digital signature.
-
-However, Threat Intelligence enrichment identified the executable as:
+An unsigned binary with outbound connections.
 
 ![DESKTOP-DEV01 Detection](screenshots/DESKTOP-DEV01.png)
 
-```text
-Known internal IT utility tool
-```
 
-### Analyst Assessment
+What I found:
 
-This detection was determined to be benign after threat intelligence validation.
+After checking threat intelligence, the binary was identified as a known internal IT utility tool. While the behavior pattern looked suspicious on the surface (unsigned + network traffic), the context explained it completely.
 
-This demonstrates the importance of contextual analysis during SOC investigations, as not all detections are malicious.
+### Why this matters:
+Not every alert is an attack. This detection is a good example of why SOC analysts need to validate findings with threat intelligence and internal knowledge before taking action. Acting too quickly on a false positive can disrupt legitimate business operations.
 
 ---
 
 ## Key Takeaways
 
-- EDR provides significantly deeper endpoint visibility compared to traditional antivirus solutions.
-- Parent-child process relationships are critical during investigations.
-- Behavioral detections help identify advanced threats and fileless attacks.
-- Telemetry correlation enables attack chain reconstruction.
-- Threat intelligence enrichment assists in validating suspicious activity.
-- SOC analysts must distinguish between malicious activity, false positives, and legitimate internal tooling.
+1. EDR provides significantly deeper endpoint visibility compared to traditional antivirus solutions.
+  
+3. Process relationships tell a story. WINWORD.EXE opening a command prompt is not normal. Understanding what processes should talk to each other is fundamental to spotting attacks.
+
+4. Context is everything. The same behavior (unsigned binary + network traffic) was malicious in one case and benign in another. Threat intelligence and business context change the conclusion.
+
+5. EDR enables containment, not just detection. The ability to quarantine files, isolate hosts, and access endpoints remotely means analysts can act on threats before they spread.
+
+6. The MITRE ATT&CK framework is a shared language. Mapping detections to ATT&CK techniques helps teams communicate and compare against known attacker behavior patterns.
+
+---
+
+### Skills Practiced
+
+- SOC alert triage and prioritization
+  
+- Parent-child process analysis
+  
+- MITRE ATT&CK technique mapping
+  
+- Threat intelligence validation and false positive analysis
+  
+- Endpoint telemetry investigation
+
+---
+
+## Tools & Technologies
+
+- Endpoint Detection & Response (EDR) platform
+
+- MITRE ATT&CK Framework
+
+- Threat Intelligence enrichment
+
+- Process tree analysis
 
 ---
 
@@ -256,17 +185,6 @@ Visualization of malicious parent-child process relationships used during invest
 ![Falcon RTR Console](screenshots/real-time-response.png.png)
 
 Example of remote endpoint response capabilities available through the EDR platform for investigation and containment.
-
----
-
-
-## Tools & Technologies
-
-- Endpoint Detection & Response (EDR)
-- Threat Intelligence
-- MITRE ATT&CK Framework
-- Endpoint Telemetry Analysis
-- Process Tree Analysis
 
 ---
 
