@@ -1,78 +1,52 @@
 # EDR Investigation Labs
 
-This section contains Endpoint Detection and Response (EDR) focused SOC investigation labs and detection analysis exercises performed in simulated enterprise environments.
+This section of my SOC analyst portfolio contains hands-on labs focused on Endpoint Detection and Response (EDR)-the process of monitoring endpoint activity, triaging alerts, and investigating suspicious behavior in enterprise environments.
 
-These labs demonstrate practical SOC analyst workflows involving:
-- endpoint telemetry analysis
-- process tree investigations
-- behavioral detections
-- alert triage
-- threat intelligence validation
-- incident response concepts
+Each lab is documented in a structured investigation format that mirrors real SOC analyst workflows.
 
 ---
 
-## Platforms Used
+## What These Labs Cover
 
-- TryHackMe
-- Simulated EDR Environments
-- CrowdStrike Falcon Interface
+EDR is a core skill in modern SOC work. These labs build practical experience in:
 
+- Reading and interpreting endpoint telemetry (process execution, file changes, network connections, registry activity)
+- Tracing parent-child process relationships to reconstruct attack chains
+- Triaging alerts and distinguishing malicious activity from false positives
+- Mapping findings to the MITRE ATT&CK framework
+- Validating suspicious indicators using threat intelligence
+- Understanding EDR response capabilities - isolation, quarantine, and remote access
+  
 ---
 
-## Skills Demonstrated
-
-- Endpoint telemetry analysis
-- Parent-child process analysis
-- Threat detection investigation
-- IOC analysis
-- Behavioral detection analysis
-- Threat intelligence validation
-- MITRE ATT&CK mapping
-- Endpoint investigation workflows
-- Detection and response concepts
-
----
-
-# Available Labs
+# Labs
 
 | Lab | Platform | Focus Area |
 |---|---|---|
-| [Introduction to EDR](./TryHackMe-Introduction-to-EDR) | TryHackMe | EDR fundamentals, telemetry analysis, detection triage |
+| [Introduction to EDR](./TryHackMe-Introduction-to-EDR) | TryHackMe | EDR fundamentals, process tree analysis, multi-alert triage |
+
+        More labs will be added as I progress through the SOC analyst learning path.
 
 ---
 
-## Core EDR Concepts Covered
+## Platforms & Tools
 
-### Visibility
-- Process execution monitoring
-- File modification tracking
-- Registry activity monitoring
-- Network connection visibility
-- Command-line telemetry collection
+* TryHackMe — simulated enterprise SOC environment
 
-### Detection
-- Behavioral detections
-- IOC matching
-- Machine learning detections
-- Anomaly detections
-- MITRE ATT&CK mapping
+* CrowdStrike Falcon — EDR interface used for alert triage and endpoint investigation
 
-### Response
-- Host isolation
-- Process termination
-- File quarantine
-- Remote response actions
-- Artifact collection
+* MITRE ATT&CK Framework — for mapping detections to known attacker techniques
+
+## How These Labs Are Documented
+
+Each lab follows a consistent investigation format:
+
+1. Detection summary - what triggered the alert
+2. Process chain analysis - visualizing the parent-child relationships
+3. Why it's suspicious - the reasoning behind the assessment, not just the conclusion
+4. MITRE ATT&CK mapping - tactic and technique identification
+5. Analyst verdict - malicious, benign, or requires further investigation
+
+This format is intentional. It reflects how I approach investigations: understanding why something is a threat, not just that it is one.
 
 ---
-
-## Purpose
-
-The purpose of these labs is to build practical SOC analyst investigation skills using Endpoint Detection and Response (EDR) workflows and endpoint telemetry analysis.
-
-Each lab is documented using a structured SOC investigation format to demonstrate:
-- analytical thinking
-- attack chain reconstruction
-- incident investigation methodology
-- technical understanding of endpoint security operations
