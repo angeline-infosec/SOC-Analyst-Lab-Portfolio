@@ -18,8 +18,8 @@ The objective of this portfolio is to demonstrate practical SOC analyst skills s
 
 ## Contents
 
--  [EDR Investigation Labs](./EDR-Investigation-Labs)
-     - [TryHackMe – Introduction to EDR](./EDR-Investigation-Labs/TryHackMe-Introduction-to-EDR) – Endpoint telemetry analysis, process tree investigation, behavioral detections, and SOC alert triage
+-  [EDR Investigation Labs](https://github.com/angeline-infosec/SOC-Analyst-Lab-Portfolio/tree/main/EDR-Investigation-Labs)
+     - [TryHackMe – Introduction to EDR](https://tryhackme.com/room/introductiontoedrs) – Endpoint telemetry analysis, process tree investigation, behavioral detections, and SOC alert triage
  
 - [Investigating Windows](./Investigating-Windows)
      - [TryHackMe - Investigating Windows](https://tryhackme.com/room/investigatingwindows) - A practical SOC-style investigation involving Windows log analysis to detect unauthorized access, privilege escalation, persistence via scheduled tasks, and attacker command-and-control activity.
