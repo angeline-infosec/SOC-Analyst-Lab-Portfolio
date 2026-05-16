@@ -22,35 +22,29 @@ The objective of this portfolio is to demonstrate practical SOC analyst skills s
      - [TryHackMe – Introduction to EDR](https://tryhackme.com/room/introductiontoedrs) – Endpoint telemetry analysis, process tree investigation, behavioral detections, and SOC alert triage
  
 - [Investigating Windows](./Investigating-Windows)
-     - [TryHackMe - Investigating Windows](https://tryhackme.com/room/investigatingwindows) - A practical SOC-style investigation involving Windows log analysis to detect unauthorized access, privilege escalation, persistence via scheduled tasks, and attacker command-and-control activity.
+     - [TryHackMe - Investigating Windows](https://tryhackme.com/room/investigatingwindows) - A practical SOC-style Windows forensic investigation of a compromised server; Event Log analysis, persistence detection, credential dumping, C2 identification, and IOC extraction
        
 
 ## Key Skills Demonstrated
 
 - SOC alert investigation and triage
-  
+- Windows forensic investigation
 - Endpoint security investigation
-  
+- Event Log analysis (Security, System logs)
 - Process tree analysis
-  
+- Persistence mechanism detection
+- Credential dumping identification
+- Privilege escalation detection
 - Threat detection analysis
-
-- IOC identification and validation
-  
+- IOC identification and extraction
 - Threat intelligence analysis
-  
 - Network connection investigation
-  
 - Behavioral detection analysis
-  
 - Log analysis
-  
 - MITRE ATT&CK mapping
-  
 - Incident response concepts
-  
 - Writing structured SOC investigation reports
-
+  
 
 ## Investigation Methodology
 
@@ -82,40 +76,30 @@ Additional investigation components may include:
 
 ## Tools & Technologies
 
-## Security Platforms
+### Security Platforms
 
-- Endpoint Detection & Response (EDR)
-  
-- SIEM platforms
-  
-- Threat Intelligence sources
-  
-- Simulated SOC environments
+* Endpoint Detection & Response (EDR)
+* SIEM platforms
+* Threat Intelligence sources
+* Simulated SOC environments (TryHackMe, CyberDefenders, LetsDefend)
 
-### Investigation & Analysis
+Investigation & Analysis
 
-- Process tree analysis
-  
-- Endpoint telemetry analysis
-  
-- IOC investigation
-  
-- Behavioral detection analysis
-  
-- MITRE ATT&CK framework mapping
+* Process tree analysis
+* Endpoint telemetry analysis
+* IOC investigation
+* Behavioral detection analysis
+* MITRE ATT&CK framework mapping
 
-### Endpoint & Network Visibility
+Endpoint & Network Visibility
 
-- Windows Event Logs
-  
-- Endpoint telemetry
-  
-- Registry analysis
-  
-- Command-line activity analysis
-  
-- Network connection analysis
-
+* Windows Event Viewer (Event IDs: 4624, 4672, and others)
+* Task Scheduler - persistence mechanism analysis
+* Registry Editor - startup entry and run key investigation
+* Windows Firewall - inbound rule and port auditing
+* Command Prompt - local group enumeration, user auditing, network state
+* Endpoint telemetry
+* Network connection analysis
 
 
 ## Purpose
