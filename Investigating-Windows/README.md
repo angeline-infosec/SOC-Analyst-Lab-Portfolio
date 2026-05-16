@@ -54,7 +54,7 @@ Windows endpoint forensics is a foundational skill in SOC and incident response 
   
 - MITRE ATT&CK Framework - for mapping detections to known attacker techniques
 
-
+---
 
 ## How These Labs Are Documented
 
@@ -75,7 +75,7 @@ Each lab follows a consistent investigation format:
 
 This format is intentional. It reflects how I approach investigations: understanding why something is malicious and how it fits into a broader attack chain.
 
-
+---
 
 ## Key Concepts Practiced
 
