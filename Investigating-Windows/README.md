@@ -35,7 +35,6 @@ Windows endpoint forensics is a foundational skill in SOC and incident response 
 | [Investigating Windows](https://tryhackme.com/room/investigatingwindows) | TryHackMe | Windows forensics, Event Log analysis, persistence, credential dumping, C2 detection |
 
 
-        More labs will be added as I progress through the SOC analyst learning path.
 
 ---
 
