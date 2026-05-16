@@ -25,7 +25,7 @@ EDR is a core skill in modern SOC work. These labs build practical experience in
 |---|---|---|
 | [Introduction to EDR](./TryHackMe-Introduction-to-EDR) | TryHackMe | EDR fundamentals, process tree analysis, multi-alert triage |
 
-        More labs will be added as I progress through the SOC analyst learning path.
+    
 
 ---
 
