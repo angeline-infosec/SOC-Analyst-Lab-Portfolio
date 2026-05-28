@@ -40,8 +40,11 @@ The lab culminates in a hands-on incident investigation where you identify a cry
 ## Why This Matters
 
 -> SIEM is foundational. Every SOC analyst must understand log collection, normalisation, and correlation.
+
 -> Rules aren't magic. Understanding how detection rules match on field-value pairs helps you write better detection logic and tune out false positives.
+
 -> Context is everything. The same suspicious process on different hosts may warrant completely different responses.
+
 -> Incident classification is critical. Distinguishing true positives from false positives is a core competency measured in SOC interviews.
 
 Completed as part of SOC analyst portfolio and training pathway.
