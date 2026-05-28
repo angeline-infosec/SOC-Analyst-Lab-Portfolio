@@ -142,14 +142,6 @@ Flag obtained: THM{000_SIEM_INTRO}
 
 ## Investigation Summary
 
-Alert Type    : Cryptominer Detected
-Process       : cudominer.exe
-Rule Match    : Process name contains "miner"
-User          : chris
-Hostname      : HR_02
-Classification: True Positive
-Action Taken  : Confirmed & Escalated
-
 
 | Field          | Value                           |
 | -------------- | ------------------------------- |
