@@ -54,9 +54,15 @@ This format is intentional. It reflects how I approach investigations: understan
 premium labs:
 
 Junior Security Analyst Intro
+
 Splunk: The Basics
+
 Incident Handling with Splunk
+
 Benign
+
 Investigating with Splunk
+
 Investgating with ELK
+
 ItsyBitsy
