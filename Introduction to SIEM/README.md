@@ -47,3 +47,16 @@ Each lab follows a consistent investigation format:
 5. Response action - what was actually done once the alert was confirmed
 
 This format is intentional. It reflects how I approach investigations: understanding why something is a threat, not just that it is one.
+
+
+---
+
+premium labs:
+
+Junior Security Analyst Intro
+Splunk: The Basics
+Incident Handling with Splunk
+Benign
+Investigating with Splunk
+Investgating with ELK
+ItsyBitsy
