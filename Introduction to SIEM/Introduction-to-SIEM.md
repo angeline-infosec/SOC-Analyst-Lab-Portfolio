@@ -1,6 +1,7 @@
 # [Introduction to SIEM](https://tryhackme.com/room/introtosiem) - TryHackme
 
-Platform: TryHackMe | Difficulty: Easy
+Platform: ![TryHackMe](https://img.shields.io/badge/TryHackMe-1abc9c?style=flat-square)
+ | Difficulty: Easy
 
 ### Lab Overview
 
