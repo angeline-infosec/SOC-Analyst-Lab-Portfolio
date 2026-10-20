@@ -24,15 +24,15 @@ SIEM is the foundation a SOC analyst works out of day to day. These labs build p
 
 | Lab | Platform | Focus Area |
 | --- | --- | --- |
-| [Introduction to SIEM](./Introduction%20to%20SIEM.md) | TryHackMe | SIEM fundamentals, log sources and ingestion, detection rules, alert investigation |
+| [Introduction to SIEM](https://github.com/angeline-infosec/SOC-Analyst-Lab-Portfolio/blob/main/Introduction%20to%20SIEM/Introduction-to-SIEM.md) | TryHackMe | SIEM fundamentals, log sources and ingestion, detection rules, alert investigation |
 
 ---
 
 ## Platforms & Tools
 
-- TryHackMe — simulated enterprise SOC environment
-- Splunk — SIEM platform used for log search, dashboards, and alert investigation
-- MITRE ATT&CK Framework — for mapping detections to known attacker techniques
+- TryHackMe - simulated enterprise SOC environment
+- Splunk - SIEM platform used for log search, dashboards, and alert investigation
+- MITRE ATT&CK Framework - for mapping detections to known attacker techniques
 
 ---
 
