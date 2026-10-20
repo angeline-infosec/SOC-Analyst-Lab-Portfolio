@@ -1,30 +1,42 @@
-Introduction to SIEM Platform: TryHackMe | Difficulty: Easy
+# [Introduction to SIEM](https://tryhackme.com/room/introtosiem) - TryHackme
 
-Lab Overview This room covers the fundamentals of Security Information and Event Management (SIEM), the core platform a SOC analyst works out of day to day. I went through how logs get generated across a network, why no single log source tells the full story on its own, and how a SIEM pulls everything together into something an analyst can actually act on. The room closed with a short simulated incident inside a SIEM dashboard, identifying a malicious process, the user and host behind it, and the correct response action.
+Platform: TryHackMe | Difficulty: Easy
 
-What I Learned
+### Lab Overview
+
+This room covers the fundamentals of Security Information and Event Management (SIEM), the core platform a SOC analyst works out of day to day. I went through how logs get generated across a network, why no single log source tells the full story on its own, and how a SIEM pulls everything together into something an analyst can actually act on. The room closed with a short simulated incident inside a SIEM dashboard, identifying a malicious process, the user and host behind it, and the correct response action.
+
+### What I Learned
 
 What counts as a log Before anything else, it's worth nailing down the basic unit all of this is built on. A log is a record of an event that occurred within a system or network, a timestamped entry noting that something happened: a file was opened, a login was attempted, a process ran. On its own a single log is just a fact. The value comes later, once logs from different places get lined up against each other.
 
-Log Sources Every device on a network produces logs constantly, and they fall into two broad categories:
+## Log Sources 
+
+Every device on a network produces logs constantly, and they fall into two broad categories:
 
 | Category | Examples | Log Types |
 | --- | --- | --- |
 | Host-Centric | Windows, Linux, servers | File access, authentication attempts, process execution, registry changes, PowerShell activity |
 | Network-Centric | Firewalls, IDS/IPS, routers | SSH connections, FTP transfers, web traffic, VPN sessions, file sharing activity |
 
-The key thing I took from this: individual logs are rarely enough on their own to call something malicious. It's the correlation across multiple sources that turns a pile of individually-boring events into a visible attack pattern.
+The key thing I took from this: individual logs are rarely enough on their own to call something malicious. It's the correlation across multiple sources that turns a pile of individually boring events into a visible attack pattern.
 
-Challenges With Isolated Log Analysis Before SIEM existed, analysts were stuck with a handful of real problems:
+### Challenges With Isolated Log Analysis: 
+
+Before SIEM existed, analysts were stuck with a handful of real problems:
 
 - No centralization. Logs live on whatever machine generated them, so investigating anything means SSHing or RDPing into each device one at a time.
 - Scale. Devices throw off hundreds of events per second. Manually reviewing that volume isn't realistic.
 - Limited context. A single file-access event looks completely normal in isolation. The same event, correlated with lateral movement from another host, is suddenly a strong indicator of compromise.
 - Format inconsistency. Windows Event Logs, Linux syslogs, and web server logs all use different structures, so an analyst has to know multiple formats just to read them.
 
-What SIEM Actually Is The definition I prefer, closer to how I'd explain it to someone else: a SIEM is a security tool that collects and analyzes logs and data from across an organization's systems in one place. It centralizes logs from different sources, detects suspicious activity, and generates alerts. Examples: Splunk, Wazuh, Microsoft Sentinel, IBM QRadar, Log360.
+### What SIEM Actually Is: 
 
-What it actually solves:
+**SIEM is a security tool that collects and analyzes logs and data from across an organization's systems in one place. It centralizes logs from different sources, detects suspicious activity, and generates alerts. 
+Examples: Splunk, Wazuh, Microsoft Sentinel, IBM QRadar, Log360.**
+
+
+### What it actually solves:
 
 | Challenge | SIEM Capability |
 | --- | --- |
@@ -34,11 +46,13 @@ What it actually solves:
 | Manual analysis | Detection rules that fire real-time alerts automatically |
 | Reporting | Dashboards summarizing alerts, failed logins, ingestion counts, top domains, etc. |
 
-`[ SCREENSHOT: SIEM collect/aggregate/detect/investigate cycle diagram ]`
+<img width="733" height="729" alt="image" src="https://github.com/user-attachments/assets/bf45fe2e-1caf-4f1f-a1c3-be3a7181a668" />
 
-`[ SCREENSHOT: network diagram showing multiple endpoints feeding into a SIEM ]`
+<img width="850" height="561" alt="image" src="https://github.com/user-attachments/assets/5df3ea3e-3e96-48b2-84be-889118705923" />
 
-Log Sources and Ingestion Windows logs everything through Event Viewer, tagging each event type with a unique Event ID, which is what makes it possible to build detection rules against specific activity later. Linux keeps its logs in a handful of predictable locations:
+### Log Sources and Ingestion
+
+Windows logs everything through Event Viewer, tagging each event type with a unique Event ID, which is what makes it possible to build detection rules against specific activity later. Linux keeps its logs in a handful of predictable locations:
 
 | Path | Contents |
 | --- | --- |
@@ -66,7 +80,7 @@ A SIEM pulls logs like these in through a few standard methods:
 - Manual Upload: useful for offline analysis, supported by Splunk, ELK, and similar platforms.
 - Port Forwarding: endpoints send logs directly to a port the SIEM is listening on.
 
-`[ SCREENSHOT: Splunk's data input methods (upload / monitor / forward) ]`
+<img width="1397" height="436" alt="image" src="https://github.com/user-attachments/assets/8b8c6441-0caf-4902-9ec5-3d7add64d0f8" />
 
 Reference: Common Windows Event IDs This room only covered a couple of Event IDs directly, but since detection rules live and die by exact Event IDs, I put together a short reference of the ones that came up plus a few other commonly cited ones worth knowing for SOC work:
 
@@ -81,10 +95,12 @@ Reference: Common Windows Event IDs This room only covered a couple of Event IDs
 | 21 | Successful RDP session logon |
 | 23 | RDP session disconnected |
 | 24 / 25 | RDP session disconnected / reconnected |
-| 39 / 40 | RDP session logon / session connection |
+| 39 / 40 | RDP session logon/session connection |
 | 1149 | Successful RDP network connection (TerminalServices-RemoteConnectionManager) |
 
-Detection Rules and the Alerting Process A detection rule is just a logical expression evaluated against normalized log fields. If the condition is met, it fires an alert. Normalization matters here specifically because rules match against exact field-value pairs. If logs from different sources aren't broken down into the same consistent fields, a rule built for one source won't reliably catch the same activity from another.
+### Detection Rules and the Alerting Process
+
+A detection rule is just a logical expression evaluated against normalized log fields. If the condition is met, it fires an alert. Normalization matters here specifically because rules match against exact field-value pairs. If logs from different sources aren't broken down into the same consistent fields, a rule built for one source won't reliably catch the same activity from another.
 
 Two examples straight from the room:
 
@@ -119,12 +135,14 @@ Once an alert fires, the actual work starts. Analysts spend most of their time i
 
 The key judgment call throughout all of this is context. The exact same binary or behavior can be completely normal in one setting and a confirmed incident in another, which is exactly what the lab scenario below demonstrates.
 
-RDP Connections Since RDP shows up constantly in both legitimate remote work and as an attacker's lateral movement method, it's worth knowing specifically where it gets logged. RDP session activity lands in Event Viewer under Applications and Services Logs > Microsoft > Windows > TerminalServices-LocalSessionManager > Operational, with a few Event IDs worth recognizing:
+### RDP Connections 
+
+Since RDP shows up constantly in both legitimate remote work and as an attacker's lateral movement method, it's worth knowing specifically where it gets logged. RDP session activity lands in Event Viewer under Applications and Services Logs > Microsoft > Windows > TerminalServices-LocalSessionManager > Operational, with a few Event IDs worth recognizing:
 
 - 21: successful RDP logon
 - 23: session disconnected
-- 24 / 25: session disconnected / reconnected
-- 39 / 40: session logon / session connection
+- 24 / 25: session disconnected/reconnected
+- 39 / 40: session logon/session connection
 - 1149: successful RDP connection, logged under TerminalServices-RemoteConnectionManager
 
 Separately, Windows keeps a history of past RDP connections in the Registry at `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Terminal Server Client`. The `Default` key holds the 10 most recently used connections, while the `Servers` key holds the full history of every remote desktop connection that profile has ever initiated.
@@ -137,9 +155,11 @@ RDP is also completely normal for remote work. Employees working from home commo
 | RDP Gateway | A server that filters and authenticates RDP requests before they reach internal desktops |
 | MFA | A second verification step required before the RDP session is granted |
 
-The practical takeaway for an analyst: an RDP connection alone isn't suspicious. An RDP connection from an unfamiliar IP, outside normal hours, or bypassing the usual VPN/gateway path, is what actually warrants a closer look.
+The practical takeaway for an analyst: an RDP connection alone isn't suspicious. An RDP connection from an unfamiliar IP, outside normal hours, or bypassing the usual VPN/gateway path is what actually warrants a closer look.
 
-MITRE ATT&CK Mapping in a SIEM Mapping alerts to MITRE ATT&CK means tying correlation rules and alerts to the specific tactics, techniques, and procedures defined in the framework, rather than leaving an alert as just a raw description of what happened.
+### MITRE ATT&CK Mapping in a SIEM
+
+Mapping alerts to MITRE ATT&CK means tying correlation rules and alerts to the specific tactics, techniques, and procedures defined in the framework, rather than leaving an alert as just a raw description of what happened.
 
 Why this is worth doing rather than skipping:
 
@@ -160,7 +180,7 @@ The general flow looks like:
                                  Technique: Account Manipulation (T1098)
 ```
 
-Common tactics and how a SIEM rule might catch them:
+### Common tactics and how a SIEM rule might catch them
 
 | Tactic | What It Means | Example Detection |
 | --- | --- | --- |
@@ -170,15 +190,15 @@ Common tactics and how a SIEM rule might catch them:
 | Credential Access | Stealing credentials | LSASS memory dump detected (e.g. Mimikatz-style activity) |
 | Lateral Movement | Moving through the network | RDP connection established from a regular workstation straight to a Domain Controller |
 
-Hands-On Lab: Incident Investigation
+## Hands-On Lab: 
 
-Scenario A suspicious activity alert fired on the SIEM dashboard. The task was to investigate it end to end: identify the responsible process and user, work out the alert's classification, and take the right response action.
+### Scenario 
 
-Step 1: Identify the triggered alert After starting the suspicious activity simulation, an alert showed up on the dashboard. Drilling into the associated events, the process behind it was `cudominer.exe`, a known cryptocurrency miner, malware that uses a compromised endpoint's CPU/GPU to mine cryptocurrency on the attacker's behalf.
+A suspicious activity alert fired on the SIEM dashboard. The task was to investigate it end to end: identify the responsible process and user, work out the alert's classification, and take the right response action.
 
-`[ SCREENSHOT: dashboard showing the triggered alert ]`
+**Step 1**: Identify the triggered alert. After starting the suspicious activity simulation, an alert showed up on the dashboard. Drilling into the associated events, the process behind it was `cudominer.exe`, a known cryptocurrency miner, malware that uses a compromised endpoint's CPU/GPU to mine cryptocurrency on the attacker's behalf.
 
-Step 2: Identify the responsible user and host Examining the event details further:
+**Step 2**: Identify the responsible user and host. Examining the event details further:
 
 | Field | Value |
 | --- | --- |
@@ -188,7 +208,7 @@ Step 2: Identify the responsible user and host Examining the event details furth
 
 The process ran under the account `chris`, on a workstation (`HR_02`) that belongs to the HR department specifically.
 
-Step 3: Examine the detection rule The rule that fired was keyword-based, matching on the term `miner`. It's configured to catch any process name containing that string, which covers known cryptominer executables regardless of the exact filename variant in use.
+**Step 3**: Examine the detection rule. The rule that fired was keyword-based, matching on the term `miner`. It's configured to catch any process name containing that string, which covers known cryptominer executables regardless of the exact filename variant in use.
 
 Step 4: Determine alert classification
 
@@ -196,13 +216,11 @@ Step 4: Determine alert classification
 | --- | --- |
 | True Positive | `cudominer.exe` is a known cryptominer. There's no legitimate business reason for it to be running on an HR workstation. The alert correctly caught real malicious activity. |
 
-Step 5: Response action Selected the appropriate response action within the SIEM platform, confirming the incident and kicking off containment.
+**Step 5**: Response action: Selected the appropriate response action within the SIEM platform, confirming the incident and kicking off containment.
 
 Flag obtained: `THM{000_SIEM_INTRO}`
 
-`[ SCREENSHOT: final flag / completed response action ]`
-
-Investigation Summary
+### Investigation Summary
 
 | Field | Value |
 | --- | --- |
@@ -214,23 +232,23 @@ Investigation Summary
 | Classification | True Positive |
 | Action Taken | Confirmed & Escalated |
 
-Key Takeaways
+## Key Takeaways
 
-- Log correlation is fundamental. Individual events almost never tell the full story on their own. Building the real picture of an incident means looking across multiple log sources at once.
+- Log correlation is fundamental. Individual events seldom tell the full story on their own. Building the real picture of an incident means looking across multiple log sources at once.
 - Normalization is what makes detection possible at all. Rules depend on consistent field-value pairs, and poorly normalized logs quietly break detection coverage without that being obvious at a glance.
 - Not every alert is malicious. Telling a true positive from a false positive is a core SOC skill, and a false positive is a signal to tune the rule, not just something to dismiss and forget.
 - SIEM exists to cut down Mean Time to Detect. Automating correlation and alerting is the whole point, versus trying to manually review logs at a scale no human actually can.
-- Context changes everything. The exact same binary, `cudominer.exe`, running on a developer's personal test machine might warrant a completely different response than the same file running on an HR workstation.
+- Context changes everything. The same binary, `cudominer.exe`, running on a developer's personal test machine might warrant a completely different response than the same file running on an HR workstation.
 
-Skills Practiced
+## Skills Practiced
 
 - SIEM alert triage and investigation
 - Log source identification (host-centric vs. network-centric)
 - Detection rule logic and field-value matching
-- True positive / false positive classification
+- True positive/false positive classification
 - MITRE ATT&CK tactic mapping for alert context
 
-Tools & Technologies
+## Tools & Technologies
 
 - Splunk (SIEM platform used in the room)
 - Windows Event Viewer / Windows Event IDs
@@ -238,4 +256,6 @@ Tools & Technologies
 - Apache web server logs
 - Syslog protocol
 
-Conclusion This room was a solid grounding in why SIEM exists in the first place: logs are everywhere, but scattered, inconsistently formatted, and individually low-context, which is exactly the gap a SIEM is built to close. The hands-on piece reinforced that identifying a malicious process is really just the start, the actual analyst work is in the context (which user, which host, why does that combination matter) and in correctly classifying what you're looking at before deciding how to respond.
+## Conclusion
+
+This room was a solid grounding in why SIEM exists in the first place: logs are everywhere, but scattered, inconsistently formatted, and individually low-context, which is exactly the gap a SIEM is built to close. The hands-on piece reinforced that identifying a malicious process is really just the start, the actual analyst work is in the context (which user, which host, why does that combination matter) and in correctly classifying what you're looking at before deciding how to respond.
