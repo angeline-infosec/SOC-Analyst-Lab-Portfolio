@@ -31,11 +31,11 @@ EDR is a core skill in modern SOC work. These labs build practical experience in
 
 ## Platforms & Tools
 
-* TryHackMe — simulated enterprise SOC environment
+* TryHackMe - simulated enterprise SOC environment
 
-* CrowdStrike Falcon — EDR interface used for alert triage and endpoint investigation
+* CrowdStrike Falcon - EDR interface used for alert triage and endpoint investigation
 
-* MITRE ATT&CK Framework — for mapping detections to known attacker techniques
+* MITRE ATT&CK Framework - for mapping detections to known attacker techniques
 
 ## How These Labs Are Documented
 
