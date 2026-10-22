@@ -4,6 +4,7 @@
 
 > **Status:** Complete. Tasks 1 to 8 documented.
 
+**_Essential Notes on [Windows Logging Essentials: Event ID Reference and Interview Notes](https://github.com/angeline-infosec/notes/blob/main/Windows-logging-essentials-notes.md)_**
 ---
 
 ## Lab Overview
