@@ -1,6 +1,6 @@
 # Windows Logging for SOC - SOC Investigation Lab
 
-**Platform:** TryHackMe | **Difficulty:** <!-- fill in -->
+**Platform:** TryHackMe |
 
 > **Status:** Complete. Tasks 1 to 8 documented.
 
