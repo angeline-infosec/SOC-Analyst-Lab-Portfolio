@@ -52,7 +52,27 @@ Determine how far the actor's reach extended, including any attempts against hig
 Determine what data the actor was after, how it was collected, and whether any of it ultimately left the environment.
 
 
+---
 
+Threat intel
+Executive SummaryThreat Hunting MissionIOCs
+Subject: Financially-Motivated Intrusion Set "Pinstripe Moth" Expands From Financial Targets Into Game and Creative Studios
+
+From: Creative Sector Threat Intake Bureau (CSTIB)
+
+To: Assigned caseworkers: Game Development, Interactive Entertainment, and Software Studios
+
+The CSTIB is tracking a financially-motivated activity cluster referred to by analysts as Pinstripe Moth. This is an analyst-named grouping used to correlate related activity; it is not a confirmed or attributed group. Pinstripe Moth has historically operated against banking, payment, and financial-services organisations. Reporting over recent months indicates a deliberate shift in targeting toward small and mid-sized game and software studios.
+
+The motive appears unchanged even as the targets have moved. Studios hold unreleased titles, source projects, and commercial and marketing material that carry high resale and extortion value; a single pre-release build can be sold to the highest bidder or held to ransom against a launch date. Pinstripe Moth shows a preference for studios with a strong, closely-watched upcoming release.
+
+Observed tradecraft is quiet by design. The actor typically gains access through tailored social-engineering lures aimed at individual developers, then favours legitimate on-host tooling and the theft and reuse of valid service credentials to move between systems, rather than deploying noisy, easily-detected malware. Where higher-value systems such as domain infrastructure are well defended, the group has been seen probing broadly for softer paths rather than forcing the issue. The consistent end goal is to collect internal project and business data and remove it to external, attacker-controlled infrastructure.
+
+Studios matching this profile are advised to hunt proactively for the behaviours described above. The accompanying indicator list carries leads drawn from external reporting on this cluster and should be treated as starting points for investigation. Cases are processed in the order received. Analysts should refer to the cluster by its designation in writing only; saying it aloud three times is not advised.
+
+Hypothesis
+Consistent with Pinstripe Moth's reported tradecraft, TryHatMe Studios may have been compromised through a lure delivered to one of its developers, giving the actor a foothold from which it used valid credentials and legitimate Windows tooling to move through the environment toward the studio's unreleased NeuralNexus work. This hunt sets out to confirm whether that activity is present, how far through the network the actor reached, and whether any of that data was taken.
+Dive into the SIEM to validate the hypothesis and reconstruct the attack chain!
 
 
 
