@@ -31,3 +31,32 @@ Step 3 of 3
 Review report and conclude
 Submit your attack chain and review the AI-generated report, which details the timeline from initial foothold to full compromise. Then, state whether you accept or refute the hypothesis. Hit Submit to finish.
 A ready-to-use narrative template awaits, simply fill in each section to tell the full story of the breach and record whether you accept or refute the hypothesis.
+
+---
+
+Quiet as the Grave
+Briefing
+TryHatMe Studios is a small, fast-rising game house with a reputation bigger than its headcount, riding the buzz around its most anticipated release yet, NeuralNexus, a platformer about a newly departed soul working through the afterlife's paperwork, one numbered ticket at a time. For a studio this size, the unreleased build and the commercial plans around it are effectively the whole business.
+
+That is exactly what makes it a target. Financially motivated crews that once chased banks and payment processors have started turning toward creative studios, where a single leaked project can be resold or held to ransom. So when game developer Sophia Reyes opened what looked like a routine project-review file one afternoon, nobody thought twice about it.
+
+In the days that followed, the security team began to wonder whether that quiet afternoon had been the opening move of something larger, something reaching from Sophia's workstation toward the studio's most closely held work. It would not be the first time something unwelcome had tried to move into the studio. The question for this hunt is how far it went, and whether anything got out.
+
+Hypothesis
+Consistent with Pinstripe Moth's reported tradecraft, TryHatMe Studios may have been compromised through a lure delivered to one of its developers, giving the actor a foothold from which it used valid credentials and legitimate Windows tooling to move through the environment toward the studio's unreleased NeuralNexus work. This hunt sets out to confirm whether that activity is present, how far through the network the actor reached, and whether any of that data was taken.
+
+Objectives
+Establish how the actor first gained access to the environment and how that foothold was kept alive over time.
+Trace the credentials the actor used to operate, and how it moved from one system to the next.
+Determine how far the actor's reach extended, including any attempts against higher-value systems such as domain infrastructure, and the broader reconnaissance it carried out along the way.
+Determine what data the actor was after, how it was collected, and whether any of it ultimately left the environment.
+
+
+
+
+
+
+
+
+
+
