@@ -1,8 +1,7 @@
-# Windows Logging for SOC - SOC Investigation Lab
+# [Windows Logging for SOC](https://tryhackme.com/room/windowsloggingforsoc) - SOC Investigation Lab : TryHackMe
 
-**Platform:** TryHackMe |
+Platform: ![TryHackMe](https://img.shields.io/badge/TryHackMe-1abc9c?style=flat-square)
 
-> **Status:** Complete. Tasks 1 to 8 documented.
 
 **_Essential Notes on [Windows Logging Essentials: Event ID Reference and Interview Notes](https://github.com/angeline-infosec/notes/blob/main/Windows-logging-essentials-notes.md)_**
 ---
