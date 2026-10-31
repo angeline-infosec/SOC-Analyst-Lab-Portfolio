@@ -4,7 +4,6 @@ Platform: ![TryHackMe](https://img.shields.io/badge/TryHackMe-1abc9c?style=flat-
 
 
 **_Essential Notes on [Windows Logging Essentials: Event ID Reference and Interview Notes](https://github.com/angeline-infosec/notes/blob/main/Windows-logging-essentials-notes.md)_**
----
 
 ## Lab Overview
 
@@ -16,7 +15,6 @@ The room's learning objectives were to find and interpret important Windows even
 - **`Practice-Sysmon.evtx`**: a Sysmon log containing a user who downloaded and ran malware (Tasks 5 and 6).
 - **PowerShell history files**: command history for the local users (Task 7).
 
----
 
 ## Lab Setup (Task 1)
 
@@ -56,8 +54,6 @@ My first machine never answered on port 3389 and nmap reported the port as `filt
 - With `-Pn`, nmap skips host discovery, so "Host is up" tells you nothing. The port state is what counts.
 - I was also running a VPN on my laptop underneath the TryHackMe VPN in my VM. TryHackMe's troubleshooting guide says to close other VPN services before using OpenVPN. Turning my laptop VPN off fixed it.
 
----
-
 ## Task 2: What Is Logged
 
 ### Why logging matters for a SOC
@@ -68,8 +64,8 @@ Whenever something happens on a system (a login, a program starting, a file bein
 - **Threat hunting:** Logs let you search for signs of malicious activity that no alert caught.
 - **Incident response:** Logs show when and how an attack happened, so you can build a timeline. (IR Cycle)
 
-- (A SOC analyst monitors logs for alerts, detects threats, investigates further, triages them based on severity and potential impact, and responds to them accordingly)
-- Incident response is the entire process of preparing for, detecting and analysing threats, containment, eradication, recovery, and post-incident activity.
+* (A SOC analyst monitors logs for alerts, detects threats, investigates further, triages them based on severity and potential impact, and responds to them accordingly)
+* Incident response is the entire process of preparing for, detecting and analysing threats, containment, eradication, recovery, and post-incident activity.
 
 ### Where Windows stores logs
 
