@@ -54,7 +54,7 @@ My first machine never answered on port 3389 and nmap reported the port as `filt
 - RDP is not a web service, so opening `IP:3389` in a browser does nothing useful.
 - A failed ping is not proof the machine is down. Windows hosts can drop ICMP.
 - With `-Pn`, nmap skips host discovery, so "Host is up" tells you nothing. The port state is what counts.
-- I was also running a VPN on my laptop underneath the TryHackMe VPN in my VM. TryHackMe's troubleshooting guide says to close other VPN services before using OpenVPN. <!-- add whether turning the laptop VPN off fixed it, or whether the fresh machine alone fixed it -->
+- I was also running a VPN on my laptop underneath the TryHackMe VPN in my VM. TryHackMe's troubleshooting guide says to close other VPN services before using OpenVPN. Turning my laptop VPN off fixed it.
 
 ---
 
@@ -64,19 +64,25 @@ My first machine never answered on port 3389 and nmap reported the port as `filt
 
 Whenever something happens on a system (a login, a program starting, a file being created), the OS can record it as a log entry with the time, the action, and the user behind it. Good logging supports three core SOC activities:
 
-- **Alerting and triage:** Logs are the building block of every alert and detection rule. Triage means checking whether an alert is real by looking at the logs behind it.
+- **Alerting and triage:** Logs are the building block of every alert and detection rule. Triage fundamentally means prioritizing and sorting alerts based on severity, urgency, and potential impact,
 - **Threat hunting:** Logs let you search for signs of malicious activity that no alert caught.
-- **Incident response:** Logs show when and how an attack happened, so you can build a timeline.
+- **Incident response:** Logs show when and how an attack happened, so you can build a timeline. (IR Cycle)
+
+- (A SOC analyst monitors logs for alerts, detects threats, investigates further, triages them based on severity and potential impact, and responds to them accordingly)
+- Incident response is the entire process of preparing for, detecting and analysing threats, containment, eradication, recovery, and post-incident activity.
 
 ### Where Windows stores logs
 
-Windows logs are stored in a binary format as `.evtx` files in `C:\Windows\System32\winevt\Logs`. Opening one in Notepad shows unreadable output, which is why a parsing tool is needed.
+Windows logs are stored in a binary format as `.evtx` files in `C:\Windows\System32\winevt\Logs`. Opening one in Notepad shows unreadable output, so you need a parsing tool.
 
-![System.evtx opened in Notepad is unreadable](images/03-evtx-notepad.png)
+<img width="1568" height="395" alt="image" src="https://github.com/user-attachments/assets/fe68361f-4d00-4e14-b66b-8d96a74daead" />
 
-Each `.evtx` file is one log category. For example:
+Each `.evtx` file is one log category.
 
-- **Application** logs hold events from user-mode applications such as IIS or MS SQL.
+For example:
+
+- **Application** logs hold events from user-mode applications such as IIS or MS SQL. (• IIS is a Web Server/Application Hosting. It handles incoming HTTP/HTTPS requests from internet users, processes web application logic (like ASP.NET), and serves back static or dynamic web pages.
+• MS SQL is a Relational Database Management System (RDBMS). It stores, manages, and retrieves structured data using SQL queries)
 - **Security** logs hold events such as logon attempts, process activity, and user management.
 
 ### Reading logs with Event Viewer
