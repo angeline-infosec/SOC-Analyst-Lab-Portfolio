@@ -28,9 +28,11 @@ The lab machine is a Windows host reached over RDP. I connected from my Linux VM
 nmap -sCV 10.48.135.239 -Pn
 ```
 
+<img width="847" height="463" alt="image" src="https://github.com/user-attachments/assets/1f1f369c-94ce-4010-9e3d-692b31e3272c" />
+
 The scan showed 999 filtered ports and one open port: `3389/tcp` (ms-wbt-server, Microsoft Terminal Services). The RDP certificate and NTLM info both named the host `THM-PC`.
 
-![Nmap scan of the lab machine](images/01-nmap-scan.png)
+Port 3389 is the default network port used for Microsoft's Remote Desktop Protocol (RDP)
 
 **Connecting with Remmina:**
 
@@ -41,7 +43,7 @@ remmina
 
 In Remmina I set the protocol to RDP, entered the machine IP, and logged in as `Administrator` with the password given in the room. I accepted the certificate warning when it appeared.
 
-![Desktop of THM-PC with the practice log files](images/02-rdp-desktop.png)
+<img width="1568" height="770" alt="image" src="https://github.com/user-attachments/assets/dd855907-fa86-46c0-ac37-f17318ed42fe" />
 
 **Note on IPs:** The lab machine expired a couple of times while I worked, so IPs differ between screenshots. This write-up uses `10.48.135.239`.
 
