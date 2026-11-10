@@ -122,6 +122,19 @@ This portfolio is designed to simulate real SOC workflows and demonstrate my abi
 
 This repository is actively maintained with new investigations and improved analysis techniques as my skills develop.
 
+---
 
+## Contents
+
+* [EDR Investigation Labs](https://github.com/angeline-infosec/SOC-Analyst-Lab-Portfolio/tree/main/EDR-Investigation-Labs)
+  * [TryHackMe: Introduction to EDR](https://tryhackme.com/room/introductiontoedrs): endpoint telemetry analysis, process tree investigation, behavioral detections, and alert triage
+* [Introduction to SIEM](https://github.com/angeline-infosec/SOC-Analyst-Lab-Portfolio/tree/main/Introduction-to-SIEM)
+  * [TryHackMe: <room name>](<room link>): <one line on what the writeup covers>
+* [Investigating Windows](https://github.com/angeline-infosec/SOC-Analyst-Lab-Portfolio/tree/main/Investigating-Windows)
+  * [TryHackMe: Investigating Windows](https://tryhackme.com/room/investigatingwindows): forensic investigation of a compromised server covering event logs, persistence, credential dumping, C2 identification, and IOC extraction
+* [It's Downtime](https://github.com/angeline-infosec/SOC-Analyst-Lab-Portfolio/tree/main/It's-Downtime!)
+  * [TryHackMe: <event name>](<link>): <one line, e.g. blue team CTF event with the tasks you completed>
+* [Windows Logging for SOC](https://github.com/angeline-infosec/SOC-Analyst-Lab-Portfolio/tree/main/Windows-Logging-for-SOC)
+  * [TryHackMe: Windows Logging for SOC](<room link>): <one line on which log sources and event IDs it covers>
 
 
