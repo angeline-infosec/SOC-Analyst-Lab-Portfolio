@@ -18,7 +18,7 @@ Agents can cause real damage without a single failed call, because they use acco
 
 | Lab | Platform | Focus Area |
 |-----|----------|------------|
-| [Agentic Security Monitoring]() | TryHackMe | AI agent audit logs, baselining, drift, missing records, controls, and incident investigation |
+| [Agentic Security Monitoring](https://github.com/angeline-infosec/SOC-Analyst-Lab-Portfolio/blob/main/Agentic-Security-Monitoring/Agentic%20Security%20Monitoring.md) | TryHackMe | AI agent audit logs, baselining, drift, missing records, controls, and incident investigation |
 
 ## Platforms & Tools
 
