@@ -21,8 +21,20 @@ The objective of this portfolio is to demonstrate practical SOC analyst skills s
 -  [EDR Investigation Labs](https://github.com/angeline-infosec/SOC-Analyst-Lab-Portfolio/tree/main/EDR-Investigation-Labs)
      - [TryHackMe – Introduction to EDR](https://tryhackme.com/room/introductiontoedrs) – Endpoint telemetry analysis, process tree investigation, behavioral detections, and SOC alert triage
  
-- [Investigating Windows](./Investigating-Windows)
+- [Investigating Windows](https://github.com/angeline-infosec/SOC-Analyst-Lab-Portfolio/tree/main/Investigating-Windows)
      - [TryHackMe - Investigating Windows](https://tryhackme.com/room/investigatingwindows) - A practical SOC-style Windows forensic investigation of a compromised server; Event Log analysis, persistence detection, credential dumping, C2 identification, and IOC extraction
+ 
+- [Introduction to SIEM](https://github.com/angeline-infosec/SOC-Analyst-Lab-Portfolio/tree/main/Introduction-to-SIEM)
+     -  [TryHackMe: Introduction to SIEM](https://tryhackme.com/room/introtosiem): log sources, normalization, and detection rules, ending with a Splunk investigation of a cryptominer alert classified as a true positive
+ 
+-  [Windows Logging for SOC](https://github.com/angeline-infosec/SOC-Analyst-Lab-Portfolio/tree/main/Windows-Logging-for-SOC)
+    -  [TryHackMe: Windows Logging for SOC](https://tryhackme.com/room/windowsloggingforsoc): reconstructed a brute force, RDP login, and backdoor account from Security logs, and a malicious download with persistence and C2 from Sysmon, plus PowerShell history review
+ 
+-  [Agentic Security Monitoring](https://github.com/angeline-infosec/SOC-Analyst-Lab-Portfolio/tree/main/Agentic-Security-Monitoring)
+     -  [TryHackMe: Agentic Security Monitoring](https://tryhackme.com/room/agenticsecuritymonitoring?pathCode=agentic-ai-security): baselined AI agent behaviour from audit logs, checked actions against requests and approvals, and investigated unauthorised log exports
+ 
+-   [It's Downtime](https://github.com/angeline-infosec/SOC-Analyst-Lab-Portfolio/tree/main/It's-Downtime!)
+     -  [TryHackMe: <event name>](<link>): <one line, e.g. blue team CTF event with the tasks you completed>  
        
 
 ## Key Skills Demonstrated
@@ -126,16 +138,8 @@ This repository is actively maintained with new investigations and improved anal
 
 ## Contents
 
-* [EDR Investigation Labs](https://github.com/angeline-infosec/SOC-Analyst-Lab-Portfolio/tree/main/EDR-Investigation-Labs)
-  * [TryHackMe: Introduction to EDR](https://tryhackme.com/room/introductiontoedrs): endpoint telemetry analysis, process tree investigation, behavioral detections, and alert triage
-* [Introduction to SIEM](https://github.com/angeline-infosec/SOC-Analyst-Lab-Portfolio/tree/main/Introduction-to-SIEM)
-  * [TryHackMe: <room name>](<room link>): <one line on what the writeup covers>
-* [Investigating Windows](https://github.com/angeline-infosec/SOC-Analyst-Lab-Portfolio/tree/main/Investigating-Windows)
-  * [TryHackMe: Investigating Windows](https://tryhackme.com/room/investigatingwindows): forensic investigation of a compromised server covering event logs, persistence, credential dumping, C2 identification, and IOC extraction
-* [It's Downtime](https://github.com/angeline-infosec/SOC-Analyst-Lab-Portfolio/tree/main/It's-Downtime!)
-  * [TryHackMe: <event name>](<link>): <one line, e.g. blue team CTF event with the tasks you completed>
-* [Windows Logging for SOC](https://github.com/angeline-infosec/SOC-Analyst-Lab-Portfolio/tree/main/Windows-Logging-for-SOC)
-  * [TryHackMe: Windows Logging for SOC](<room link>): <one line on which log sources and event IDs it covers>
-* [Agentic Security Monitoring](https://github.com/angeline-infosec/SOC-Analyst-Lab-Portfolio/tree/main/Agentic-Security-Monitoring)
-  * [TryHackMe: Agentic Security Monitoring](<room link>): baselining AI agent behaviour, reading agent audit logs, spotting drift and missing records, and investigating unauthorised exports
+
+
+
+
 
