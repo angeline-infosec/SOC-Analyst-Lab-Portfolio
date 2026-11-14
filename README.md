@@ -136,5 +136,6 @@ This repository is actively maintained with new investigations and improved anal
   * [TryHackMe: <event name>](<link>): <one line, e.g. blue team CTF event with the tasks you completed>
 * [Windows Logging for SOC](https://github.com/angeline-infosec/SOC-Analyst-Lab-Portfolio/tree/main/Windows-Logging-for-SOC)
   * [TryHackMe: Windows Logging for SOC](<room link>): <one line on which log sources and event IDs it covers>
-
+* [Agentic Security Monitoring](https://github.com/angeline-infosec/SOC-Analyst-Lab-Portfolio/tree/main/Agentic-Security-Monitoring)
+  * [TryHackMe: Agentic Security Monitoring](<room link>): baselining AI agent behaviour, reading agent audit logs, spotting drift and missing records, and investigating unauthorised exports
 
