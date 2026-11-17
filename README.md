@@ -30,9 +30,9 @@ The objective of this portfolio is to demonstrate practical SOC analyst skills s
 -  [Windows Logging for SOC](https://github.com/angeline-infosec/SOC-Analyst-Lab-Portfolio/tree/main/Windows-Logging-for-SOC)
     -  [TryHackMe: Windows Logging for SOC](https://tryhackme.com/room/windowsloggingforsoc): reconstructed a brute force, RDP login, and backdoor account from Security logs, and a malicious download with persistence and C2 from Sysmon, plus PowerShell history review
 
--  [AI Agent Security]()
-     -  [TryHackMe: Agentic Security Monitoring](): baselined AI agent behaviour from audit logs, checked actions against requests and approvals, and investigated unauthorised log exports
-    -  [TryHackMe: Agentory](): reviewed eight AI agents from their configuration, mapped where outside text is trusted too far, and showed how an email changed an agent's action
+-  [AI Agent Security](https://github.com/angeline-infosec/SOC-Analyst-Lab-Portfolio/tree/main/AI-Agent-Security)
+     -  [TryHackMe: Agentic Security Monitoring](https://github.com/angeline-infosec/SOC-Analyst-Lab-Portfolio/blob/main/AI-Agent-Security/Agentic%20Security%20Monitoring.md): baselined AI agent behaviour from audit logs, checked actions against requests and approvals, and investigated unauthorised log exports
+    -  [TryHackMe: Agentory](https://github.com/angeline-infosec/SOC-Analyst-Lab-Portfolio/blob/main/AI-Agent-Security/Agentory.md): reviewed eight AI agents from their configuration, mapped where outside text is trusted too far, and showed how an email changed an agent's action
  
 -   [It's Downtime](https://github.com/angeline-infosec/SOC-Analyst-Lab-Portfolio/tree/main/It's-Downtime!)
      -  [TryHackMe: <event name>](<link>): <one line, e.g. blue team CTF event with the tasks you completed>  
