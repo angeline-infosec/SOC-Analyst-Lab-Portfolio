@@ -1,6 +1,6 @@
 # Snow Trail: Advent of Cyber 2026 Warm-Up
 
-**Platform:** TryHackMe | **Event:** Advent of Cyber 2026 | **Type:** Guided warm-up room | **Focus:** Choosing the right device for each piece of evidence
+**Platform:** ![TryHackMe](https://img.shields.io/badge/TryHackMe-1abc9c?style=flat-square) | **Event:** Advent of Cyber 2026 
 
 ---
 
