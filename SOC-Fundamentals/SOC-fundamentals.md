@@ -149,9 +149,42 @@ Endpoint Detection and Response (EDR) gives the SOC team detailed real-time and 
 
 A firewall works purely for network security and acts as a barrier between the internal network and external networks such as the Internet. It monitors incoming and outgoing network traffic and filters unauthorized traffic. Firewalls also have detection rules deployed, which help identify and block suspicious traffic before it reaches the internal network.
 
-### Other solutions
+**Other solutions**
 
 Several other security solutions play their own roles in a SOC, such as Antivirus, EPP, IDS/IPS, XDR, SOAR and more. Which technology to deploy comes after careful consideration of the organization's threat surface and available resources.
+
+The room only names these, so I looked up a definition for each one. They are grouped below the way they tend to relate to each other.
+
+### Antivirus
+
+Antivirus software monitors a computer or network to identify major types of malware to prevent or contain malware incidents. It is the oldest of these tools, and the one most people already know, and it mainly works against malicious code that reaches an individual machine.
+
+### EPP (Endpoint Protection Platform)
+
+An endpoint protection platform is a set of software safeguards that protects end-user machines such as workstations and laptops against attack. NIST's example list includes antivirus, antispyware, antiadware, personal firewalls and host-based intrusion detection and prevention systems. In other words, an EPP bundles several protections for a device into one product.
+
+The vendor and analyst world uses the term more broadly. Gartner updated its EPP definition in 2017 so that it also covers detecting malicious activity and providing investigation and remediation, which is why modern EPP products overlap with EDR. 
+
+### IDS (Intrusion Detection System)
+
+Intrusion detection is the process of monitoring events in a computer system or network and analyzing them for signs of possible incidents. An IDS is the software that automates that process. It looks for suspicious activity and alerts, but it does not act on what it finds.
+
+## IPS (Intrusion Prevention System)
+
+An IPS has all the capabilities of an IDS and can also attempt to stop the possible incidents it detects, ideally before the activity reaches its target. The difference from an IDS is therefore the ability to respond. NIST uses the combined term IDPS for both technologies.
+
+NIST also separates them by where they sit. A network-based IDPS monitors traffic for particular network segments or devices and analyzes network and application protocol activity to identify and stop suspicious activity. A host-based IDPS monitors the characteristics of a single host and the events happening within it.
+
+### XDR (Extended Detection and Response)
+
+Microsoft describes its Defender XDR as a unified suite that coordinates detection, prevention, investigation, and response across endpoints, identities, email, and applications, and that can take automated action to stop an attack.
+
+The general idea is that XDR grows EDR beyond the endpoint by collecting and correlating data from several layers of the environment in one place, so an analyst can follow an attack across them; because the term is not standardized, products sold as XDR can differ in what they cover.
+
+###  SOAR (Security Orchestration, Automation and Response)
+
+Gartner, the firm that coined the term, describes SOAR as technologies that let an organization collect inputs monitored by the security operations team, such as alerts from the SIEM, and then define, prioritize and drive standardized incident response. Analysis and triage can use a combination of human and machine effort, and SOAR tools let the organization write its analysis and response procedures as a digital workflow, which in practice means playbooks. In relation to the rest of the stack, the SIEM raises the alert and SOAR automates part of what happens next.
+
 
 **Question:** Which security solution monitors the incoming and outgoing traffic of the network?
 
