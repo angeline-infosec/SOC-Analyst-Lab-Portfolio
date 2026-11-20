@@ -1,12 +1,6 @@
 # TryHackMe: SOC Fundamentals
 
-**Platform:** TryHackMe
-**Room:** SOC Fundamentals
-**Summary:** An introduction to the SOC team and the processes it follows.
-**Type:** Mostly theory, with one hands-on Level 1 Analyst exercise at the end
-**Focus area:** Defensive security, SOC operations
-
----
+**Platform:** ![TryHackMe](https://img.shields.io/badge/TryHackMe-1abc9c?style=flat-square)
 
 ## Overview
 
@@ -19,7 +13,6 @@ This room is mostly theory, but I consider it one of the most important rooms fo
 - The role of People, Processes, and Technology
 - A practical exercise
 
----
 
 ## Task 1: Introduction to SOC
 
@@ -27,10 +20,6 @@ Technology has made life more efficient, and that efficiency comes with more res
 
 A **SOC (Security Operations Center)** is a dedicated facility run by a specialized security team. The team continuously monitors an organization's network and resources and looks for suspicious activity so that damage can be prevented. It works 24 hours a day, seven days a week.
 
-**Question:** What does the term SOC stand for?
-**Answer:** Security Operations Center
-
----
 
 ## Task 2: Purpose and Components
 
@@ -64,15 +53,13 @@ Strictly speaking, vulnerabilities are not necessarily the SOC's responsibility,
 
 A SOC becomes mature, and detects and responds to different incidents efficiently, when it has three pillars: **People, Process and Technology**. They coexist in a SOC environment. A mature SOC is a team of professionals working on state-of-the-art security tools within proper processes.
 
-![The three pillars of a SOC: People, Process, Technology](images/soc-pillars.png)
+<img width="825" height="801" alt="image" src="https://github.com/user-attachments/assets/199560f2-3dca-49dc-ae61-8b4254c79761" />
 
-**Question:** The SOC team discovers an unauthorized user is trying to log in to an account. Which capability of SOC is this?
-**Answer:** Detection
 
 **Question:** What are the three pillars of a SOC?
+
 **Answer:** People, Process, Technology
 
----
 
 ## Task 3: People
 
@@ -82,7 +69,6 @@ Even as more security tasks are automated, the people in a SOC stay important. A
 
 A SOC with security solutions and no human intervention ends up focusing on irrelevant issues in the same way. The people are the ones who help the solution identify truly harmful activity and make a prompt response possible. These people are the SOC team, and it has the following roles.
 
-![SOC team structure: CISO, SOC Manager, then SOC Analysts L1 to L3, Security Engineer and Detection Engineer](images/soc-team-structure.png)
 
 | Role | Responsibility |
 |---|---|
@@ -96,12 +82,13 @@ A SOC with security solutions and no human intervention ends up focusing on irre
 > **Note:** The roles in a SOC team can increase or decrease depending on the size and criticality of the organization.
 
 **Question:** Alert triage and reporting is the responsibility of?
+
 **Answer:** SOC Analyst (Level 1)
 
 **Question:** Which role in the SOC team allows you to work dedicatedly on establishing rules for alerting security solutions?
+
 **Answer:** Detection Engineer
 
----
 
 ## Task 4: Process
 
@@ -111,7 +98,7 @@ Each role in the SOC has its own processes. For example, Level 1 Analysts act as
 
 Alert triage is the basis of the SOC team, because the first response to any alert is to triage it. Triage focuses on analyzing the specific alert, which determines its severity and helps prioritize it. It is all about answering the **5 Ws**.
 
-![The 5 Ws: Who, What, Where, When, Why](images/five-ws.png)
+<img width="740" height="627" alt="image" src="https://github.com/user-attachments/assets/ce85ce4c-5e65-44c6-879c-fed8cd5c026f" />
 
 *Example from the room:*
 
@@ -131,15 +118,16 @@ Harmful alerts need to be escalated to higher-level analysts so they can be hand
 
 ### Incident Response and Forensics
 
-Sometimes the reported detections point to highly malicious and critical activity. In those cases, higher-level teams start an incident response. The room points to the [Incident Response](https://tryhackme.com/r/room/incidentresponsefundamentals) room for the full process. In some cases a detailed forensics activity also has to be carried out. Its aim is to determine the root cause of the incident by analyzing artifacts from a system or network.
+Sometimes the reported detections point to highly malicious and critical activity. In those cases, higher-level teams start an incident response. In some cases, a detailed forensics activity also has to be carried out. Its aim is to determine the root cause of the incident by analyzing artifacts from a system or network.
 
 **Question:** At the end of the investigation, the SOC team found that John had attempted to steal the system's data. Which 'W' from the 5 Ws does this answer?
+
 **Answer:** Who
 
 **Question:** The SOC team detected a large amount of data exfiltration. Which 'W' from the 5 Ws does this answer?
+
 **Answer:** What
 
----
 
 ## Task 5: Technology
 
@@ -149,7 +137,7 @@ An organization's network has many devices and applications. Detecting and respo
 
 ### SIEM
 
-Security Information and Event Management (SIEM) is used in almost every SOC environment. It collects logs from various network devices, called **log sources**. Detection rules configured in the SIEM contain the logic for identifying suspicious activity. The SIEM correlates events across multiple log sources and alerts the team when something matches one of the rules. Modern SIEM solutions go beyond rule-based detection and offer user behavior analytics and threat intelligence capability, supported by machine learning algorithms that strengthen detection.
+Security Information and Event Management (SIEM) is used in almost every SOC environment. It collects logs from various network devices, called **log sources**. Detection rules configured in the SIEM contain the logic for identifying suspicious activity. The SIEM correlates events across multiple log sources and alerts the team when something matches one of the rules. Modern SIEM solutions go beyond rule-based detection and offer user behavior analytics and threat intelligence capabilities, supported by machine learning algorithms that strengthen detection.
 
 > **Note:** The SIEM solution only provides the Detection capability in a SOC environment.
 
@@ -166,12 +154,13 @@ A firewall works purely for network security and acts as a barrier between the i
 Several other security solutions play their own roles in a SOC, such as Antivirus, EPP, IDS/IPS, XDR, SOAR and more. Which technology to deploy comes after careful consideration of the organization's threat surface and available resources.
 
 **Question:** Which security solution monitors the incoming and outgoing traffic of the network?
+
 **Answer:** Firewall
 
 **Question:** Do SIEM solutions primarily focus on detecting and alerting about security incidents? (yea/nay)
+
 **Answer:** Yea
 
----
 
 ## Task 6: Practical Exercise of SOC
 
@@ -195,19 +184,12 @@ I am the Level 1 Analyst on the organization's SOC team. An alert comes in sayin
 | **Additional Investigation Notes:** Has any response been sent back to the port scanner IP? (yea/nay) | yea |
 
 **Question:** What is the flag found after closing the alert?
+
 **Answer:** `THM{000_INTRO_TO_SOC}`
 
 ### Analysis
 
 The alert looked like reconnaissance, since a port scan is a common early step in an attack. The deciding context was the note from the vulnerability assessment team, which had announced a scan from `10.0.0.8`. The source host in the logs was Nessus, which matches that announcement, so the activity was intended and not malicious. This is why the Why question matters in triage: the same activity can be harmless or hostile depending on whether it is expected, and the answer comes from correlating the alert with what the organization already knows.
-
----
-
-## Task 7: Conclusion
-
-The room covered the responsibilities of the SOC team and the three pillars, People, Process and Technology, that make a SOC mature. It focused on how each pillar plays out in day-to-day SOC use cases, and ended with a practice lab where I solved a real-world style SOC alert as a Level 1 Analyst.
-
----
 
 ## Key Takeaways
 
